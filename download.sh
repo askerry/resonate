@@ -22,3 +22,6 @@ then
 fi
 
 echo "Data downloaded to" $AUDIO_DIR
+
+# launch jupyter
+source launch.sh
