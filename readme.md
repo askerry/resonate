@@ -29,7 +29,7 @@ Activate the virtualenv so that all dependencies are installed within it
 * Docker
 
 ### Docker Build
-docker build -t resonate-app
+docker build -t resonate-app .
 
 ### Docker Run
 docker run -it --rm --name resonate-live-app resonate-app
