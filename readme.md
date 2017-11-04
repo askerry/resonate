@@ -7,6 +7,7 @@ Data and initial analysis strategies obtained from [FMA: A Dataset For Music Ana
 * [Homebrew](https://brew.sh/)
 * python3.5 (`brew install python3`)
 * p7zip (`brew install p7zip`)
+* ffmpeg (`brew install ffmpeg`)
 * virtualenv (`pip install virtualenv`)
 
 ## Create a virtualenv for the project
@@ -21,5 +22,3 @@ Activate the virtualenv so that all dependencies are installed within it
 
 ## Run initial setup script
 `source setup.sh`
-
-
