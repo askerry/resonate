@@ -7,4 +7,6 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY download.sh ./
-COPY setup.sh ./
+COPY project_setup.sh ./
+
+CMD [ "source", "" ]
