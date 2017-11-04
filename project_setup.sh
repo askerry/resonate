@@ -12,4 +12,4 @@ pip install -r requirements.txt
 ipython3 kernelspec install-self
 
 # Download the raw data
-bash download.sh
+source download.sh
