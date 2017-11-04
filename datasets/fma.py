@@ -69,9 +69,8 @@ def read(fma_data_path, split_name='training', subset_size='small'):
         for filename in (TRACKS_FILENAME, GENRES_FILENAME, FEATURES_FILENAME,
                          ECHONEST_FILENAME)]
 
-    # Verify that the indices for tracks, features, and echonest are identical.
+    # Verify that the indices for tracks and features are identical.
     assert np.all(tracks_df.index == features_df.index)
-    assert np.all(tracks_df.index == echonest_df.index)
 
     # Restrict the track-oriented dataframes to the selected subset and split.
     subset_filter = tracks_df['set', 'subset'] == subset_size
@@ -82,6 +81,8 @@ def read(fma_data_path, split_name='training', subset_size='small'):
 
     # TODO(rryan): This is kind of hard-coding the task into the data
     # loading. Doing this now for convenience but we'll want to revisit.
+    # WARNING: echonest_df requires a join to include here, while features_df
+    # and tracks_df have identical index columns.
     features = {
         'mfcc': features_df['mfcc'],
     }
