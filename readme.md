@@ -13,7 +13,7 @@ Data and initial analysis strategies obtained from [FMA: A Dataset For Music Ana
 
 Create a virtualenv pointing to your python3.5 installation
 
-`virtualenv --python=/usr/local/Cellar/python3/3.5.0/bin/python3.5 --no-site-packages ~/.virtualenv/resonate`
+`virtualenv --python=python3 --no-site-packages ~/.virtualenv/resonate`
 
 Activate the virtualenv so that all dependencies are installed within it
 

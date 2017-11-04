@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "Setting up dev environment for resonate..."
 
 # Add matplotlibrc to use appropriate backend
@@ -11,4 +13,3 @@ ipython3 kernelspec install-self
 
 # Download the raw data
 bash download.sh
-
