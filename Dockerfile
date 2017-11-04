@@ -10,4 +10,5 @@ COPY env_setup.sh ./
 
 RUN pip install --no-cache-dir -r requirements.txt
 
+
 CMD [ "source", "env_setup.sh" ]
