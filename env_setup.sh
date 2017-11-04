@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "Setting up Resonate Environment..."
+
 # Create a virtualenv pointing to your python3.5 installation
 virtualenv --python=python3 --no-site-packages ~/.virtualenv/resonate
 
