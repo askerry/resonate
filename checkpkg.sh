@@ -11,7 +11,7 @@ else
     apt-get -qq install -y apt-utils > /dev/null
     apt-get -qq install -y software-properties-common > /dev/null
     echo "add ffmpeg ppa..."
-    apt-add-repository ppa:jonathonf/ffmpeg-3”
+    add-apt-repository ppa:jonathonf/ffmpeg-3”
     echo "apt-get -qq update..."
     apt-get -qq update
 fi
