@@ -12,11 +12,12 @@ import tensorflow as tf
 
 from datasets import fma
 
+logging.getLogger().setLevel(logging.INFO)
 DEFAULT_MINI_BATCH_SIZE = 32
 DEFAULT_LEARNING_RATE = .5
 
 
-def load_data(dataset, split, dataset_size, batch_size):
+def load_data(dataset, split, dataset_size, batch_size, num_epochs):
     """Load data into trainable iterator."""
     logging.info("Loading dataset %s" % dataset)
     # TODO(amy): Build support for cross validation rather than
@@ -25,9 +26,14 @@ def load_data(dataset, split, dataset_size, batch_size):
         path_to_data = 'raw_data'
         dataset, all_labels = fma.read(path_to_data, split, dataset_size)
 
-        # Shuffle with shuffle buffer 10x the batch size.
-        dataset = dataset.shuffle(batch_size * 10)
-        batched_dataset = dataset.batch(batch_size)
+        batched_dataset = (
+            dataset
+            # Shuffle with shuffle buffer 10x the batch size.
+            .shuffle(batch_size * 10)
+            # Repeat for num_epochs.
+            .repeat(num_epochs)
+            # Collect examples into mini-batches of batch_size.
+            .batch(batch_size))
 
         # Create iterator that will make one pass through the dataset.
         iterator = batched_dataset.make_one_shot_iterator()
@@ -100,19 +106,23 @@ def specify_model(
     return train_step, cross_entropy
 
 
-def train_loop(train_op, loss, num_iterations):
+def train_loop(train_op, loss):
     """Core training loop."""
     # TODO(amy): Use MonitoredTrainingSession instead of raw session.
     try:
+        step = 0
         with tf.Session() as session:
             # Initialize all variables in the graph.
             session.run(tf.global_variables_initializer())
             session.run(tf.tables_initializer())
-            for i in range(num_iterations):
+            # Train until our dataset iterator raises an OutOfRangeError. This
+            # will happen after we've finished --num_epochs epochs.
+            while True:
                 _, loss_val = session.run([train_op, loss])
-                print(loss_val)
+                step += 1
+                logging.info('Step %d: loss=%f' % (step, loss_val))
     except tf.errors.OutOfRangeError:
-        logging.info('Successfully trained to loss of %s' % loss)
+        logging.info('Successfully trained to loss of %f' % loss_val)
 
 
 def main(
@@ -121,11 +131,11 @@ def main(
         dataset_size,
         batch_size,
         learning_rate,
-        num_iterations):
+        num_epochs):
     features, labels, all_labels = load_data(
-        dataset, split, dataset_size, batch_size)
+        dataset, split, dataset_size, batch_size, num_epochs)
     train_op, loss = specify_model(features, labels, all_labels, learning_rate)
-    train_loop(train_op, loss, num_iterations)
+    train_loop(train_op, loss)
 
 
 if __name__ == '__main__':
@@ -133,11 +143,11 @@ if __name__ == '__main__':
     parser.add_argument('--dataset', default='fma')
     parser.add_argument('--split', default='training')
     parser.add_argument('--size', default='small')
-    parser.add_argument('--num_iterations', default=1000)
+    parser.add_argument('--num_epochs', default=10)
     parser.add_argument('--mini_batch_size', default=DEFAULT_MINI_BATCH_SIZE)
     parser.add_argument('--learning_rate', default=DEFAULT_LEARNING_RATE)
     args = parser.parse_args()
 
     main(
         args.dataset, args.split, args.size, args.mini_batch_size,
-        args.learning_rate, args.num_iterations)
+        args.learning_rate, args.num_epochs)
