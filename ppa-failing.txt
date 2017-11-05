@@ -1,0 +1,55 @@
+ubuntu@ubuntu-xenial:/vagrant/resonate$ sudo docker build --no-cache --tag pissed:off .
+Sending build context to Docker daemon  924.7kB
+Step 1/4 : FROM python:3.5
+ ---> 135b4d6a73e8
+Step 2/4 : WORKDIR /usr/src/app
+ ---> 8979d281ee5a
+Removing intermediate container 84807cf7f1a1
+Step 3/4 : COPY . ./
+ ---> 1b206e29d0ae
+Step 4/4 : RUN export DEBIAN_FRONTEND=noninteractive     && echo "DEBIAN VERSION: " && cat /etc/debian_version     && bash checkpkg.sh     && bash installs.sh
+ ---> Running in b260e98a5d26
+DEBIAN VERSION:
+8.9
+apt-get -qq update...
+ffmpeg package was NOT found
+install pkg add capability...
+debconf: delaying package configuration, since apt-utils is not installed
+add ffmpeg ppa...
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.4/threading.py", line 920, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 153, in run
+    self.add_ppa_signing_key(self.ppa_path)
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 224, in add_ppa_signing_key
+    ppa_info = get_ppa_info_from_lp(owner_name, ppa_name)
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 103, in get_ppa_info_from_lp
+    return _get_https_content_py3(lp_url)
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 108, in _get_https_content_py3
+    lp_page = urllib.request.urlopen(request, cafile=LAUNCHPAD_PPA_CERT)
+  File "/usr/lib/python3.4/urllib/request.py", line 153, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.4/urllib/request.py", line 455, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.4/urllib/request.py", line 473, in _open
+    '_open', req)
+  File "/usr/lib/python3.4/urllib/request.py", line 433, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.4/urllib/request.py", line 1217, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/lib/python3.4/urllib/request.py", line 1174, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers)
+  File "/usr/lib/python3.4/http/client.py", line 1090, in request
+    self._send_request(method, url, body, headers)
+  File "/usr/lib/python3.4/http/client.py", line 1118, in _send_request
+    self.putrequest(method, url, **skips)
+  File "/usr/lib/python3.4/http/client.py", line 975, in putrequest
+    self._output(request.encode('ascii'))
+UnicodeEncodeError: 'ascii' codec can't encode character '\u201d' in position 41: ordinal not in range(128)
+
+apt-get -qq update...
+W: Failed to fetch http://ppa.launchpad.net/jonathonf/ffmpeg-3”/ubuntu/dists/jessie/main/binary-amd64/Packages  403  Forbidden
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+The command '/bin/sh -c export DEBIAN_FRONTEND=noninteractive     && echo "DEBIAN VERSION: " && cat /etc/debian_version     && bash checkpkg.sh     && bash installs.sh' returned a non-zero code: 100
