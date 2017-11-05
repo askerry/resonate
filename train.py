@@ -143,9 +143,11 @@ if __name__ == '__main__':
     parser.add_argument('--dataset', default='fma')
     parser.add_argument('--split', default='training')
     parser.add_argument('--size', default='small')
-    parser.add_argument('--num_epochs', default=10)
-    parser.add_argument('--mini_batch_size', default=DEFAULT_MINI_BATCH_SIZE)
-    parser.add_argument('--learning_rate', default=DEFAULT_LEARNING_RATE)
+    parser.add_argument('--num_epochs', type=int, default=10)
+    parser.add_argument('--mini_batch_size',
+                        type=int, default=DEFAULT_MINI_BATCH_SIZE)
+    parser.add_argument('--learning_rate',
+                        type=float, default=DEFAULT_LEARNING_RATE)
     args = parser.parse_args()
 
     main(
