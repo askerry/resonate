@@ -10,3 +10,7 @@ seaborn==0.8.1
 tensorflow==1.4.0
 virtualenv==13.1.0
 
+# Included for fma_util.py
+pydot==1.2.3
+requests==2.18.4
+

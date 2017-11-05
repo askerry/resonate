@@ -1,7 +1,7 @@
 """Utilities for loading and exploring FMA dataset, obtained
 from https://github.com/mdeff/fma/
 
-available under MIT License Copyright (c) 2016 Michaël Defferrard"""
+available under MIT License Copyright (c) 2016 Michael Defferrard"""
 
 # TODO(amy): figure out what/if any we want to use
 
