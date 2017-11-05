@@ -9,7 +9,7 @@ else
     echo "ffmpeg package was NOT found"
     echo "install pkg add capability..."
     apt-get -qq install -y apt-utils > /dev/null
-    apt-get -qq install -y software-properties-common > /dev/null
+    apt-get -qq install -y software-properties-common python-software-properties > /dev/null
     echo "add ffmpeg ppa..."
     add-apt-repository -y ppa:jonathonf/ffmpeg-3”
     echo "apt-get -qq update..."
