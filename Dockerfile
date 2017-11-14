@@ -7,14 +7,11 @@ WORKDIR /var/app
 RUN apk update \
   && apk add bash \
   && apk add curl \
+  && apk add pkgconfig \
   && apk add p7zip ffmpeg \
   && pip install virtualenv
 
 CMD [ "bash", "env_setup.sh" ]
-
-
-
-
 
 
 # docker build -t resonate_img .
