@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 jupyter notebook --port 9005

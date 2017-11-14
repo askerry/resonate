@@ -1,13 +1,28 @@
 
-FROM python:3.5
+FROM python:3.5-alpine
 
-WORKDIR /usr/src/app
+COPY . /var/app
+WORKDIR /var/app
 
-COPY . ./
+RUN apk update \
+  && apk add bash \
+  && apk add curl \
+  && apk add p7zip ffmpeg \
+  && pip install virtualenv
 
-RUN export DEBIAN_FRONTEND=noninteractive \
-    && echo "DEBIAN VERSION: " && cat /etc/debian_version \
-    && bash checkpkg.sh \
-    && bash installs.sh
+CMD [ "bash", "env_setup.sh" ]
 
-CMD [ "source", "env_setup.sh" ]
+
+
+
+
+
+# docker build -t resonate_img .
+# docker run -it -p 9005:9005 --name resonate_container resonate_img
+# docker run -it -p 9005:9005 --rm --name resonate_container resonate_img
+# docker run -d -p 9005:9005 --rm --name resonate_container resonate_img
+
+
+# docker run --name hello-world_container hello-world
+
+# docker run -it --rm alpine:3.4
