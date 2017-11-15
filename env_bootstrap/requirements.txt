@@ -1,16 +1,16 @@
-ipython==6.2.1
-jupyter==1.0.0
-librosa==0.5.1.
-matplotlib==2.1.0
-numpy==1.13.3
-pandas==0.21.0
-scikit-learn==0.19.1
-scipy==1.0.0
-seaborn==0.8.1
-# tensorflow
+ipython
+jupyter
+librosa
+matplotlib
+numpy
+pandas
+scikit-learn
+scipy
+seaborn
+tensorflow
     # "Could not find a version that satisfies the requirement tensorflow"
     # "No matching distribution found for tensorflow"
 
 # Included for fma_util.py
-pydot==1.2.3
-requests==2.18.4
+pydot
+requests
