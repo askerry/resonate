@@ -3,13 +3,16 @@
 echo "Setting up Resonate Project..."
 
 # Add matplotlibrc to use appropriate backend
-export MATPLOTLIBRC=.matplotlib
+# export MATPLOTLIBRC=.matplotlib
 
 # Install python requirements
-pip install -r requirements.txt
+pip install -r "$bootstrap_DIR/requirements.txt"
+
+# workaround for odd pip install failure... (not finding tf 1.4.0)
+# source "$bootstrap_DIR/tflow-install.sh"
 
 # Make sure we have python 3 kernel for jupyter notebook
-ipython3 kernelspec install-self
+# ipython kernelspec install-self
 
 # Download the raw data
-source download.sh
+# source "$bootstrap_DIR/download.sh"
