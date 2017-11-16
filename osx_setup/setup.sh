@@ -8,8 +8,5 @@ export MATPLOTLIBRC=.matplotlib
 # Install python requirements
 pip install -r requirements.txt
 
-# Make sure we have python 3 kernel for jupyter notebook
-ipython3 kernelspec install-self
-
 # Download the raw data
 bash download.sh
