@@ -7,6 +7,8 @@ FROM python:3.5-alpine
 # COPY . /var/app
 # WORKDIR /var/app
 
+EXPOSE 9005
+
 RUN apk update \
   && apk add bash \
   && apk add curl \
