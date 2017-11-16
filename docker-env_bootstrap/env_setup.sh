@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # echo "pwd: " $PWD
-export bootstrap_DIR="$PWD/env_bootstrap"
+export bootstrap_DIR="$PWD/docker-env_bootstrap"
 # echo "dir: " $bootstrap_DIR
 
 # echo "PATH: $PATH"

@@ -29,7 +29,7 @@ Activate the virtualenv so that all dependencies are installed within it
 * Docker
 
 ### Docker Build
-./docker-build.sh
+`./docker-env_bootstrap/docker-build.sh`
 
 ### Docker Run
-./docker-run.sh
+`./docker-env_bootstrap/docker-run.sh`
