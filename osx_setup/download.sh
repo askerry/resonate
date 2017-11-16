@@ -2,11 +2,13 @@
 
 ROOT=$(pwd)
 
+AUDIO_DIR="$ROOT/raw_data"
+
 if [ ! -d raw_data ]
 then
     mkdir raw_data
 fi
-export AUDIO_DIR=$(pwd)/raw_data
+export AUDIO_DIR="$ROOT/raw_data"
 
 cd raw_data
 if [ ! -f fma_metadata.zip ]
@@ -21,4 +23,4 @@ then
     7za x fma_small.zip
 fi
 
-echo "Data downloaded to" $AUDIO_DIR
+echo "Data downloaded to: " $AUDIO_DIR

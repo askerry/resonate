@@ -1,0 +1,16 @@
+ipython
+jupyter
+librosa
+matplotlib
+numpy
+pandas
+scikit-learn
+scipy
+seaborn
+tensorflow
+    # "Could not find a version that satisfies the requirement tensorflow"
+    # "No matching distribution found for tensorflow"
+
+# Included for fma_util.py
+pydot
+requests
