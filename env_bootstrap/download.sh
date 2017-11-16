@@ -1,5 +1,6 @@
 #!/bin/sh
 
+echo "____________"
 echo "hit download script."
 
 ROOT=$(pwd)
