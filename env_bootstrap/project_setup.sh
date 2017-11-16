@@ -11,7 +11,7 @@ echo "python -V: " $(python -V)
 export MATPLOTLIBRC=.matplotlib
 
 # Install python requirements
-pip install -r "$bootstrap_DIR/requirements.txt"
+pip install --no-cache-dir -r "$bootstrap_DIR/requirements.txt"
 # source "$bootstrap_DIR/requirements.sh"
 
 # workaround for odd pip install failure... (not finding tf 1.4.0)
