@@ -20,7 +20,7 @@ Activate the virtualenv so that all dependencies are installed within it
 `source ~/.virtualenv/resonate/bin/activate`
 
 ### Run initial setup script
-`source setup.sh`
+`source osx_setup/setup.sh`
 
 
 ## Docker Setup
