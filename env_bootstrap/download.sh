@@ -27,6 +27,3 @@ AUDIO_DIR="$ROOT/raw_data"
 # fi
 
 echo "Data downloaded to" $AUDIO_DIR
-
-# launch jupyter
-source "$bootstrap_DIR/launch.sh"

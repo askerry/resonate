@@ -11,11 +11,14 @@ echo "python -V: " $(python -V)
 export MATPLOTLIBRC=.matplotlib
 
 # Install python requirements
-# pip install -r "$bootstrap_DIR/requirements.txt"
-source "$bootstrap_DIR/requirements.sh"
+pip install -r "$bootstrap_DIR/requirements.txt"
+# source "$bootstrap_DIR/requirements.sh"
 
 # workaround for odd pip install failure... (not finding tf 1.4.0)
 source "$bootstrap_DIR/tflow-install.sh"
 
 # Download the raw data
 source "$bootstrap_DIR/download.sh"
+
+# launch jupyter
+source "$bootstrap_DIR/launch.sh"
