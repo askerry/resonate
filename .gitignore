@@ -14,7 +14,5 @@ __pycache__/
 *.mp3
 *.pdf
 
-notes.txt
-ubuntu-xenial-16.04-cloudimg-console.log
-test.sh
 _bin/*
+.DS-Store
