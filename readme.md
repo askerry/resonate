@@ -23,13 +23,13 @@ Activate the virtualenv so that all dependencies are installed within it
 `source setup.sh`
 
 
-## Ubuntu (Docker) Setup
+## Docker Setup
 
 ### Prerequisites
 * Docker
 
 ### Docker Build
-docker build --tag resonate_app:dataSci .
+./docker-build.sh
 
 ### Docker Run
-docker run -p 9005:9005 -it --rm --name resonate-live-app resonate-app
+./docker-run.sh
